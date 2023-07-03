@@ -47,6 +47,14 @@ function GetPersonById(data: any) : Result<PagedItems<Person>>
                 fullname: RValue(item.fullname)
             });
         }
+        let oDoc = OpenNewDoc('x-local://wtv/wtv_collaborator.xmd');
+        oDoc.BindToDb(DefaultDb)
+        oDoc.TopElem.name.ObtainChildByKey('some val').Value = "Limon";
+        oDoc.TopElem.Child(1).Value = "asd"
+        let d = Date("10.01.2023");
+        IsArray(d);
+
+        tools_gpn.log('limon', 'some log')
         res.success = true;
     }
     catch(err: any)

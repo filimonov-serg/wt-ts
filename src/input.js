@@ -22,6 +22,12 @@ function GetPersonById(data) {
                 fullname: RValue(item.fullname)
             });
         }
+        var oDoc = OpenNewDoc('x-local://wtv/wtv_collaborator.xmd');
+        oDoc.BindToDb(DefaultDb);
+        oDoc.TopElem.name.ObtainChildByKey('some val').Value = "Limon";
+        oDoc.TopElem.Child(1).Value = "asd";
+        var d = Date("10.01.2023");
+        tools_gpn.log('limon', 'some log');
         res.success = true;
     }
     catch (err) {
