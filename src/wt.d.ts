@@ -1,5 +1,5 @@
 declare interface XmlElem {
-    [key: string]: XmlElem
+    [key: string]: XmlElem | any
     Doc: XmlDoc
     Value: any
     ForeignElem: XmlElem
@@ -87,6 +87,8 @@ declare function ArrayUnion(array1: any[], array2: any[], ...otherArrays?: any[]
 declare function IsArray(value: any): boolean
 
 declare function GetOptProperty(propName: string, defaultVal: any): any | undefined
+
+declare function OpenCodeLib<T>(url: string): T
 
 declare namespace tools_gpn {
     function get_nci_data(code: string | null, catalog_code: string | null, field_code: string | null): {id: number, name: string, code: string, catalog_code: string, catalog_field_code: string}[]

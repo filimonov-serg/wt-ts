@@ -14,6 +14,8 @@ function GetPersonById(data) {
         sql.push("select * from collaborators where id = " + id);
         var qry = XQuery(sql.join('\r\n'));
         res.result.total = ArrayCount(qry);
+        var lib = OpenCodeLib('x-local://...');
+        var resLib = lib.SayHello("asdasdf");
         var item = void 0;
         for (var i = 0; i < res.result.total; i++) {
             item = qry[i];
@@ -26,6 +28,8 @@ function GetPersonById(data) {
         oDoc.BindToDb(DefaultDb);
         oDoc.TopElem.name.ObtainChildByKey('some val').Value = "Limon";
         oDoc.TopElem.Child(1).Value = "asd";
+        oDoc.TopElem.fullname = "Hren`";
+        //@ts-ignore
         var d = Date("10.01.2023");
         tools_gpn.log('limon', 'some log');
         res.success = true;
@@ -36,3 +40,10 @@ function GetPersonById(data) {
     }
     return res;
 }
+var Test = /** @class */ (function () {
+    function Test() {
+    }
+    Test.prototype.point = function (a, b) {
+    };
+    return Test;
+}());

@@ -38,7 +38,11 @@ function GetPersonById(data: any) : Result<PagedItems<Person>>
         res.result.total = ArrayCount(qry);
 
 
+        let lib = OpenCodeLib<ISayHello>('x-local://...');
+        let resLib = lib.SayHello("asdasdf");
+
         let item;
+
         for(let i=0; i < res.result.total; i++)
         {
             item = qry[i];
@@ -51,8 +55,10 @@ function GetPersonById(data: any) : Result<PagedItems<Person>>
         oDoc.BindToDb(DefaultDb)
         oDoc.TopElem.name.ObtainChildByKey('some val').Value = "Limon";
         oDoc.TopElem.Child(1).Value = "asd"
+        oDoc.TopElem.fullname = "Hren`";
+        //@ts-ignore
         let d = Date("10.01.2023");
-        IsArray(d);
+
 
         tools_gpn.log('limon', 'some log')
         res.success = true;
@@ -63,4 +69,11 @@ function GetPersonById(data: any) : Result<PagedItems<Person>>
         res.error = err;
     }
     return res;
+}
+
+class Test {
+    point(a: string, b: number): void
+    {
+
+    }
 }
